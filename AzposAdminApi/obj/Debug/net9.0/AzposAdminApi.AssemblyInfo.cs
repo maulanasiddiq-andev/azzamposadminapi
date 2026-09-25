@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AzposAdminApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1bbf109fbae35b74fe1251d9b95df8f759f370b6")]
 [assembly: System.Reflection.AssemblyProductAttribute("AzposAdminApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AzposAdminApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
