@@ -11,8 +11,10 @@ namespace AzposAdminApi.Extensions
         {
             #region  Akuntansi
             collection.AddTransient<AkunRepository>();
+            collection.AddTransient<JenisAkunRepository>();
             collection.AddTransient<MappingAkunRepository>();
             collection.AddTransient<PajakRepository>();
+            collection.AddTransient<SaldoBulanAkunRepository>();
             #endregion
 
             #region Masterdata

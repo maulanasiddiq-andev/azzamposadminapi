@@ -6,6 +6,17 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("*")   // your frontend origin(s)
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+        // .AllowCredentials(); // only if you send cookies/auth credentials
+    });
+});
+
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -57,6 +68,8 @@ app.UseSwaggerUI(options =>
 {
     options.SwaggerEndpoint("/openapi/v1.json", "AzposAdminApi v1");
 });
+
+app.UseCors("AllowFrontend");
 
 app.UseHttpsRedirection();
 

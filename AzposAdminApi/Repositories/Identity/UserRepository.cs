@@ -96,22 +96,22 @@ namespace AzposAdminApi.Repositories.Identity
                 .AsQueryable();
 
             #region Filtering
-            string? recordStatus = searchSortFilterPaging.RecordStatus;
+            // string? recordStatus = searchSortFilterPaging.RecordStatus;
 
-            if (string.IsNullOrEmpty(recordStatus))
-            {
-                listUserQuery = listUserQuery.Where(a => a.RecordStatus.ToLower().Equals(RecordStatusConstant.Active.ToLower())).AsQueryable();
-            }
-            else if (recordStatus.ToLower() == RecordStatusConstant.ActiveInActive.ToLower())
-            {
-                listUserQuery = listUserQuery
-                    .Where(a => a.RecordStatus.ToLower().Equals(RecordStatusConstant.Active.ToLower()) ||
-                a.RecordStatus.ToLower().Equals(RecordStatusConstant.InActive.ToLower())).AsQueryable();
-            }
-            else if (recordStatus.ToLower() != RecordStatusConstant.All.ToLower())
-            {
-                listUserQuery = listUserQuery.Where(a => a.RecordStatus.ToLower().Equals(recordStatus.ToLower())).AsQueryable();
-            }
+            // if (string.IsNullOrEmpty(recordStatus))
+            // {
+            //     listUserQuery = listUserQuery.Where(a => a.RecordStatus.ToLower().Equals(RecordStatusConstant.Active.ToLower())).AsQueryable();
+            // }
+            // else if (recordStatus.ToLower() == RecordStatusConstant.ActiveInActive.ToLower())
+            // {
+            //     listUserQuery = listUserQuery
+            //         .Where(a => a.RecordStatus.ToLower().Equals(RecordStatusConstant.Active.ToLower()) ||
+            //     a.RecordStatus.ToLower().Equals(RecordStatusConstant.InActive.ToLower())).AsQueryable();
+            // }
+            // else if (recordStatus.ToLower() != RecordStatusConstant.All.ToLower())
+            // {
+            //     listUserQuery = listUserQuery.Where(a => a.RecordStatus.ToLower().Equals(recordStatus.ToLower())).AsQueryable();
+            // }
             #endregion
 
             #region searching

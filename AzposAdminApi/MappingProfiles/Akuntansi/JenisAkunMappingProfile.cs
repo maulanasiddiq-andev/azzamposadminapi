@@ -5,16 +5,15 @@ using AzposAdminApi.Models.Akuntansi;
 
 namespace AzposAdminApi.MappingProfiles.Akuntansi
 {
-    public class AkunMappingProfile : Profile
+    public class JenisAkunMappingProfile : Profile
     {
-        public AkunMappingProfile()
+        public JenisAkunMappingProfile()
         {
-            CreateMap<AkunModel, AkunDto>();
-            CreateMap<AkunDto, AkunModel>();
-            CreateMap<AkunModel, ValueDisplayDto>()
+            CreateMap<JenisAkunModel, JenisAkunDto>();
+            CreateMap<JenisAkunModel, ValueDisplayDto>()
                 .ForMember(
                     dest => dest.Value,
-                    opt => opt.MapFrom(src => $"{src.AkunId}")
+                    opt => opt.MapFrom(src => $"{src.JenisAkunId}")
                     )
                 .ForMember(
                     dest => dest.Display,

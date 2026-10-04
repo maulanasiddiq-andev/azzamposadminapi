@@ -29,8 +29,12 @@ namespace AzposAdminApi.Models
 
         #region Akuntansi
         public DbSet<AkunModel> Akun { get; set; }
+        public DbSet<KategoriAkunModel> KategoriAkun { get; set; }
+        public DbSet<CoaModel> Coa { get; set; }
+        public DbSet<JenisAkunModel> JenisAkun { get; set; }
         public DbSet<MappingAkunModel> MappingAkun { get; set; }
         public DbSet<PajakModel> Pajak { get; set; }
+        public DbSet<SaldoBulananAkunModel> SaldoBulananAkun { get; set; }
         #endregion
 
         #region Identity

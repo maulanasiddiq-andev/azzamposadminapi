@@ -46,6 +46,17 @@ namespace AzposAdminApi.Repositories.Masterdata
             }
 
             return kodeKaryawan;
+        }
+
+        public async Task<KaryawanModel?> FindKaryawanByUserIdAsync(string userId, string tenantId)
+        {
+            KaryawanModel? karyawan = await dBContext.Karyawan
+                .Include(a => a.Jabatan)
+                .Include(a => a.Gudang)
+                .Where(a => a.UserId.Equals(userId) && a.TenantId.Equals(tenantId))
+                .FirstOrDefaultAsync();
+
+            return karyawan;
         }        
     }
 }

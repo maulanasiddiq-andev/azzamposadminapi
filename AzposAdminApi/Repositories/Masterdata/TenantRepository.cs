@@ -138,8 +138,8 @@ namespace AzposAdminApi.Repositories.Masterdata
                     totalItem++;
                 }
 
-                var listAkun = await akunRepository.FindAllActiveAsync();
-                var listMappingAkun = await mappingAkunRepository.FindAllActiveAsync();
+                var listAkun = await akunRepository.FindAllActiveAsync(tenant.TenantId);
+                var listMappingAkun = await mappingAkunRepository.FindAllActiveAsync(tenant.TenantId);
 
                 listAkun = listAkun.OrderBy(a => a.NomorAkun).ToList();
 
@@ -468,7 +468,7 @@ namespace AzposAdminApi.Repositories.Masterdata
                 actionModelHelper.AssignCreateModel(newKurir, "Kurir", userId, tenant.TenantId);
                 dBContext.Add(newKurir);
 
-                var kodeGroupPelanggan = await groupPelangganRepository.GenerateKodeGroupPelanggan();
+                var kodeGroupPelanggan = await groupPelangganRepository.GenerateKodeGroupPelanggan(tenant.TenantId);
                 var groupPelanggan = new GroupPelangganModel()
                 {
                     Kode = kodeGroupPelanggan,
@@ -507,7 +507,7 @@ namespace AzposAdminApi.Repositories.Masterdata
 
                 var defaultAlamat = await dBContext.Wilayah.FirstOrDefaultAsync(a => a.WilayahId.Equals("121dd5508f59423dbcc3b54a7935cca9"));
 
-                var kodeGudang = await gudangRepository.GenerateKodeGudang();
+                var kodeGudang = await gudangRepository.GenerateKodeGudang(tenant.TenantId);
                 var newGudang = new GudangModel()
                 {
                     WilayahId = defaultAlamat?.WilayahId,
